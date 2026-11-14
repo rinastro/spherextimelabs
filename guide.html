@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Guide · SkyFolder</title>
+  <meta name="description" content="How to blink SPHEREx images, use difference imaging, read spectra and light curves, and share or embed a view.">
+  <meta property="og:title" content="Guide · SkyFolder">
+  <meta property="og:description" content="How to blink SPHEREx images, use difference imaging, read spectra and light curves, and share or embed a view.">
+  <meta name="theme-color" content="#e5ecd4">
+  <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Inter+Tight:wght@700;800&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+  <a class="skip" href="#main">Skip to content</a>
+  <header class="site-header">
+    <div class="wrap header-row">
+      <a class="brand" href="index.html">
+        <svg viewBox="0 0 64 64" aria-hidden="true"><path d="M6 18a6 6 0 0 1 6-6h14l6 6h20a6 6 0 0 1 6 6v4H6z" fill="#e2bc7c"/><path d="M6 24a6 6 0 0 1 6-6h40a6 6 0 0 1 6 6v22a6 6 0 0 1-6 6H12a6 6 0 0 1-6-6z" fill="#95bd69"/><circle cx="25" cy="35" r="3" fill="#161616"/><circle cx="33" cy="32" r="3" fill="#161616" opacity=".55"/><circle cx="41" cy="29" r="3" fill="#161616" opacity=".25"/></svg>
+        <span><b>SkyFolder</b><small>SPHEREx motion viewer</small></span>
+      </a>
+      <nav class="tabs" aria-label="Main">
+        <a class="tab" href="index.html">Home</a>
+        <a class="tab" href="viewer.html">Viewer</a>
+        <a class="tab" href="targets.html">Test targets</a>
+        <a class="tab active" href="guide.html" aria-current="page">Guide</a>
+        <a class="tab" href="data.html">Data</a>
+        <a class="tab" href="about.html">About</a>
+      </nav>
+    </div>
+  </header>
+
+  <div class="wrap">
+    <main id="main" class="sheet">
+      <div class="page-intro">
+        <p class="eyebrow">Guide</p>
+        <h1 style="font-size:clamp(2rem,4.4vw,3.2rem)">How to use SkyFolder</h1>
+        <p class="lead">Five minutes from your first click to your first candidate. Read in order, or jump to a section.</p>
+      </div>
+
+      <nav class="toc" aria-label="On this page">
+        <a class="chip" href="#quick-start">Quick start</a>
+        <a class="chip" href="#reading">Reading the image</a>
+        <a class="chip" href="#movers">Spotting movers</a>
+        <a class="chip" href="#bands">Using the 102 bands</a>
+        <a class="chip" href="#overlays">Overlays</a>
+        <a class="chip" href="#links">Links &amp; embedding</a>
+        <a class="chip" href="#troubleshooting">Troubleshooting</a>
+      </nav>
+
+      <div class="prose">
+        <h2 id="quick-start">Quick start</h2>
+        <ol>
+          <li><strong>Choose a position.</strong> Type Right Ascension and declination into the viewer, or type a name such as <em>Barnard's Star</em> and press <em>Look up</em>. Coordinates can be decimal degrees (<code>133.795</code>, <code>-7.245</code>) or sexagesimal (<code>08h55m10.8s</code>, <code>-07:14:42.5</code>).</li>
+          <li><strong>Pick a field of view.</strong> Small fields (2–4′) load fast and suit slow objects. Larger fields let you follow fast movers but take longer to download.</li>
+          <li><strong>Press “Load images”.</strong> SkyFolder asks the archive which SPHEREx images cover the spot, then downloads a small cutout of each one.</li>
+          <li><strong>Press Play.</strong> Frames are sorted by date. Use <kbd>←</kbd> and <kbd>→</kbd> to step, <kbd>Space</kbd> to pause.</li>
+        </ol>
+
+        <h2 id="reading">Reading the image</h2>
+        <p>All frames are rotated onto the same grid: <strong>north is up and east is left</strong>, as on a sky chart. One display pixel is 6.2″, the native SPHEREx pixel size. The compass and scale bar in the corners confirm the orientation.</p>
+        <p>Pixel values are shown in units of the frame’s noise (σ above the local sky). That lets images from different detectors share one brightness scale. Hover over the image to read the coordinates and value under the cursor.</p>
+        <p>The default palette, <em>Ink on paper</em>, draws stars dark on a light background. Faint smudges are often easier to see this way. Switch to <em>Greyscale</em> or <em>Heat</em> if you prefer.</p>
+
+        <h2 id="movers">Spotting movers</h2>
+        <p>SPHEREx sees each part of the sky in a burst of observations, then comes back about six months later. SkyFolder groups the images into these <strong>epochs</strong>.</p>
+        <ul>
+          <li><strong>Epoch stacks</strong> average all images of one visit. This gives fewer frames with less noise, which is the best way to see slow movers such as nearby stars and brown dwarfs.</li>
+          <li><strong>Every image</strong> plays each exposure on its own. Use this for asteroids and comets that move noticeably within a single visit.</li>
+        </ul>
+        <h3>Difference imaging</h3>
+        <p>The <em>Subtract</em> menu removes everything that stays the same:</p>
+        <ul>
+          <li><strong>Median sky of all frames</strong> builds a picture of the static sky and removes it from each frame. A moving object turns into a spot that travels across an empty field.</li>
+          <li><strong>First frame</strong> shows how each epoch differs from the earliest one. A mover becomes a dark and bright pair, and the separation grows over time.</li>
+          <li><strong>Previous frame</strong> highlights sudden changes such as flares or a fast asteroid.</li>
+        </ul>
+        <div class="callout"><p><strong>Tip:</strong> choose the <em>Blue–red</em> colour map with any subtraction. Blue then means “fainter than the reference” and red means “brighter”.</p></div>
+        <h3>Is it real?</h3>
+        <p>Before you get excited, check that the object:</p>
+        <ul>
+          <li>appears in more than one epoch and moves in a straight line at a steady rate;</li>
+          <li>is not on a flagged pixel (turn on <em>Flagged pixels</em>) and is not a diffraction spike or ghost of a bright star;</li>
+          <li>has no Gaia DR3 match that already explains the motion (turn on <em>Gaia DR3 stars</em>).</li>
+        </ul>
+        <p>Promising candidates can be reported to citizen-science projects such as <a href="https://backyardworlds.org" rel="noopener">Backyard Worlds</a>, which has a long record of turning volunteer finds into published discoveries.</p>
+
+        <h2 id="bands">Using the 102 bands</h2>
+        <p>SPHEREx records the sky through six detectors. Each one covers part of the 0.75–5.0 µm range and is split into 17 narrow bands. The <em>Detector</em> menu restricts the animation to one of them:</p>
+        <ul>
+          <li><strong>D1–D3</strong> (0.75–2.4 µm) are best for ordinary stars and galaxies.</li>
+          <li><strong>D4</strong> (2.4–3.8 µm) covers the 3 µm water-ice band.</li>
+          <li><strong>D5–D6</strong> (3.8–5.0 µm) are where the coldest brown dwarfs are brightest, and where carbon dioxide and carbon monoxide ices absorb.</li>
+        </ul>
+        <h3>Spectra</h3>
+        <p>Click any pixel and open the <em>Spectrum</em> tab. SkyFolder measures the brightness at that spot in every image and plots it against wavelength. Each detector’s bandpass changes across its surface, so a source lands in a different narrow band each time SPHEREx looks at it. Repeated visits gradually fill in the full spectrum.</p>
+        <p>Tick <strong>Exact wavelengths</strong> before loading to read each image’s wavelength map from the archive. Without it, every point is drawn at the centre of its detector’s range (hollow circles). Fluxes are aperture sums with a local sky subtracted and no aperture correction, so use them for comparing points rather than as calibrated photometry.</p>
+        <h3>Light curves</h3>
+        <p>The <em>Light curve</em> tab plots the same measurement against time, coloured by detector. For variable stars such as R Draconis, compare points of one colour: a change within one detector is a real change in brightness.</p>
+
+        <h2 id="overlays">Overlays</h2>
+        <ul>
+          <li><strong>Gaia DR3 stars</strong> are drawn as green circles. Positions are moved from Gaia’s 2016.0 epoch to the date of each frame, so a correctly identified mover keeps inside its circle.</li>
+          <li><strong>Flagged pixels</strong> marks pixels with any quality flag set in the SPHEREx flag map. The <em>Image list &amp; flags</em> tab lists the individual flag bits at the pixel you clicked.</li>
+          <li><strong>Reference sky</strong> below the viewer is a full Aladin Lite atlas with AllWISE, 2MASS, DSS and Pan-STARRS images and the Gaia DR3 and AllWISE catalogues.</li>
+        </ul>
+
+        <h2 id="links">Links &amp; embedding</h2>
+        <p>Everything you set is stored in the address bar, so a copied link reopens the same view. Supported parameters:</p>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>Parameter</th><th>Meaning</th><th>Example</th></tr></thead>
+            <tbody>
+              <tr><td><code>ra</code>, <code>dec</code></td><td>Position, decimal degrees or sexagesimal</td><td><code>ra=133.795&amp;dec=-7.245</code></td></tr>
+              <tr><td><code>target</code></td><td>One of the test targets</td><td><code>barnard</code>, <code>eps-indi-b</code>, <code>wise0855</code>, <code>rw-aur</code>, <code>r-dra</code></td></tr>
+              <tr><td><code>fov</code></td><td>Field of view in arcminutes</td><td><code>fov=6</code></td></tr>
+              <tr><td><code>mode</code></td><td><code>epochs</code> or <code>frames</code></td><td><code>mode=frames</code></td></tr>
+              <tr><td><code>det</code></td><td>Detector 1–6</td><td><code>det=6</code></td></tr>
+              <tr><td><code>diff</code></td><td><code>median</code>, <code>first</code> or <code>prev</code></td><td><code>diff=median</code></td></tr>
+              <tr><td><code>max</code></td><td>Maximum number of images</td><td><code>max=120</code></td></tr>
+              <tr><td><code>coll</code></td><td>Archive collection (data release)</td><td><code>coll=spherex_qr</code></td></tr>
+              <tr><td><code>precise</code></td><td>Exact wavelengths</td><td><code>precise=1</code></td></tr>
+              <tr><td><code>embed</code></td><td>Compact layout for iframes</td><td><code>embed=1</code></td></tr>
+            </tbody>
+          </table>
+        </div>
+        <p style="margin-top:1rem">The <em>Copy embed code</em> button produces a ready-made <code>&lt;iframe&gt;</code> for blogs, course pages or project wikis.</p>
+
+        <h2 id="troubleshooting">Troubleshooting</h2>
+        <h3>“No SPHEREx images cover this position”</h3>
+        <p>SPHEREx releases data in weekly batches, and some parts of the sky are not public yet. Try another data release in the menu, or come back after the next release.</p>
+        <h3>Loading is slow</h3>
+        <p>Each image is a separate download. Lower the <em>Images</em> number or the field size, and leave <em>Exact wavelengths</em> off unless you need spectra.</p>
+        <h3>“Could not reach the IRSA archive”</h3>
+        <p>SkyFolder runs entirely in your browser and talks to the archive directly. Some networks or browser extensions block these requests. If that happens on your deployment, set <code>corsProxy</code> in <code>assets/js/config.js</code> to a proxy you control. The project README explains how.</p>
+        <h3>Frames look slightly misaligned</h3>
+        <p>Very bright stars and the edges of detectors can show small offsets. Check the pointing in a second epoch before treating a shift of under one pixel as real motion.</p>
+      </div>
+
+    </main>
+  </div>
+
+  <footer class="site-footer">
+    <div class="wrap footer-row">
+      <p>© <span data-year>2026</span> SkyFolder · Built for the 2026 NASA Space Apps Challenge. Not an official NASA product.</p>
+      <nav aria-label="Footer">
+        <a href="viewer.html">Open viewer</a>
+        <a href="guide.html">Guide</a>
+        <a href="data.html#resources">Resources</a>
+        <a href="https://irsa.ipac.caltech.edu/Missions/spherex.html" rel="noopener">SPHEREx at IRSA</a>
+      </nav>
+    </div>
+  </footer>
+  <script src="assets/js/common.js" defer></script>
+</body>
+</html>

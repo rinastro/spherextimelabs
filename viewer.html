@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Viewer · SkyFolder</title>
+  <meta name="description" content="Enter sky coordinates and play SPHEREx images as an animation, with stacking, difference imaging, spectra and Gaia overlays.">
+  <meta property="og:title" content="Viewer · SkyFolder">
+  <meta property="og:description" content="Enter sky coordinates and play SPHEREx images as an animation, with stacking, difference imaging, spectra and Gaia overlays.">
+  <meta name="theme-color" content="#e5ecd4">
+  <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Inter+Tight:wght@700;800&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/style.css">
+  <script src="https://aladin.cds.unistra.fr/AladinLite/api/v3/latest/aladin.js" charset="utf-8"></script>
+</head>
+<body>
+  <a class="skip" href="#main">Skip to content</a>
+  <header class="site-header">
+    <div class="wrap header-row">
+      <a class="brand" href="index.html">
+        <svg viewBox="0 0 64 64" aria-hidden="true"><path d="M6 18a6 6 0 0 1 6-6h14l6 6h20a6 6 0 0 1 6 6v4H6z" fill="#e2bc7c"/><path d="M6 24a6 6 0 0 1 6-6h40a6 6 0 0 1 6 6v22a6 6 0 0 1-6 6H12a6 6 0 0 1-6-6z" fill="#95bd69"/><circle cx="25" cy="35" r="3" fill="#161616"/><circle cx="33" cy="32" r="3" fill="#161616" opacity=".55"/><circle cx="41" cy="29" r="3" fill="#161616" opacity=".25"/></svg>
+        <span><b>SkyFolder</b><small>SPHEREx motion viewer</small></span>
+      </a>
+      <nav class="tabs" aria-label="Main">
+        <a class="tab" href="index.html">Home</a>
+        <a class="tab active" href="viewer.html" aria-current="page">Viewer</a>
+        <a class="tab" href="targets.html">Test targets</a>
+        <a class="tab" href="guide.html">Guide</a>
+        <a class="tab" href="data.html">Data</a>
+        <a class="tab" href="about.html">About</a>
+      </nav>
+    </div>
+  </header>
+
+  <div class="wrap">
+    <main id="main" class="sheet">
+      <div class="page-intro">
+        <p class="eyebrow">Viewer</p>
+        <h1 style="font-size:clamp(2rem,4.4vw,3.2rem)">Blink the SPHEREx sky</h1>
+        <p class="lead">Enter a position, load the images, and press play. Click the image to measure a spectrum or light curve at that spot.</p>
+      </div>
+
+      <form id="search-form" class="folder search-folder" autocomplete="off">
+        <span class="label">Search</span>
+        <div class="search-grid">
+          <div class="name-wrap">
+            <label for="target-name">Object name <span class="hint">(optional)</span></label>
+            <div class="name-field">
+              <input id="target-name" type="text" placeholder="e.g. Barnard's Star, M 101">
+              <button id="resolve-btn" class="btn small ghost" type="button">Look up</button>
+            </div>
+          </div>
+          <div>
+            <label for="ra">Right Ascension</label>
+            <input id="ra" class="mono" type="text" placeholder="08h55m10.831s or 133.795" required>
+          </div>
+          <div>
+            <label for="dec">Declination</label>
+            <input id="dec" class="mono" type="text" placeholder="-7d14m42.53s or -7.245" required>
+          </div>
+          <div>
+            <label for="fov">Field</label>
+            <select id="fov">
+              <option value="2">2′</option>
+              <option value="3">3′</option>
+              <option value="4">4′</option>
+              <option value="6">6′</option>
+              <option value="10">10′</option>
+              <option value="15">15′</option>
+              <option value="30">30′</option>
+            </select>
+          </div>
+          <div>
+            <label for="max-images">Images</label>
+            <select id="max-images">
+              <option value="30">30</option>
+              <option value="60">60</option>
+              <option value="120">120</option>
+              <option value="240">240</option>
+              <option value="all">All</option>
+            </select>
+          </div>
+        </div>
+        <div class="search-more">
+          <div>
+            <label for="collection">Data release</label>
+            <select id="collection"></select>
+          </div>
+          <div>
+            <label class="check" for="precise"><input id="precise" type="checkbox"> Exact wavelengths <span class="hint">(slower)</span></label>
+          </div>
+          <button class="btn" type="submit">Load images</button>
+        </div>
+        <div class="presets" id="presets"><span>Test targets:</span></div>
+      </form>
+
+      <div class="status-bar">
+        <p id="status" role="status" aria-live="polite">Enter a position or choose a test target.</p>
+        <div id="progress" class="progress" hidden><span></span></div>
+        <a id="irsa-link" class="btn small ghost" target="_blank" rel="noopener" hidden>Image list at IRSA</a>
+      </div>
+
+      <div class="viewer-grid">
+        <div class="stage-wrap">
+          <div class="stage" id="stage">
+            <canvas id="sky" aria-label="SPHEREx image of the selected sky region"></canvas>
+            <div class="stage-empty" id="stage-empty">Images will appear here.</div>
+          </div>
+          <div class="frame-info"><span id="frame-label">—</span></div>
+          <p id="frame-sub"></p>
+          <div class="player">
+            <button id="prev" class="btn small" type="button" aria-label="Previous frame">←</button>
+            <button id="play" class="btn small green" type="button" aria-pressed="false" disabled>Play</button>
+            <button id="next" class="btn small" type="button" aria-label="Next frame">→</button>
+            <input id="frame-slider" type="range" min="0" max="0" value="0" aria-label="Frame" disabled>
+            <label for="fps">fps <input id="fps" type="number" min="0.5" max="12" step="0.5" value="2"></label>
+          </div>
+          <p id="readout">Hover over the image to read coordinates.</p>
+        </div>
+
+        <div>
+          <div class="panel">
+            <h3>Display</h3>
+            <div class="controls">
+              <div>
+                <label for="mode">Frames</label>
+                <select id="mode">
+                  <option value="epochs">Epoch stacks</option>
+                  <option value="frames">Every image</option>
+                </select>
+              </div>
+              <div>
+                <label for="detector">Detector</label>
+                <select id="detector">
+                  <option value="all">All (0.75–5.0 µm)</option>
+                  <option value="1">D1 · 0.75–1.09 µm</option>
+                  <option value="2">D2 · 1.10–1.62 µm</option>
+                  <option value="3">D3 · 1.63–2.41 µm</option>
+                  <option value="4">D4 · 2.42–3.82 µm</option>
+                  <option value="5">D5 · 3.83–4.41 µm</option>
+                  <option value="6">D6 · 4.42–5.00 µm</option>
+                </select>
+              </div>
+              <div class="full">
+                <label for="difference">Subtract</label>
+                <select id="difference">
+                  <option value="none">Nothing (plain images)</option>
+                  <option value="median">Median sky of all frames</option>
+                  <option value="first">First frame</option>
+                  <option value="prev">Previous frame</option>
+                </select>
+              </div>
+              <div>
+                <label for="stretch">Stretch</label>
+                <select id="stretch">
+                  <option value="asinh">Asinh</option>
+                  <option value="sqrt">Square root</option>
+                  <option value="linear">Linear</option>
+                </select>
+              </div>
+              <div>
+                <label for="clip">Brightness</label>
+                <select id="clip">
+                  <option value="99">Bright (99%)</option>
+                  <option value="99.5" selected>Normal (99.5%)</option>
+                  <option value="99.9">Soft (99.9%)</option>
+                </select>
+              </div>
+              <div class="full">
+                <label for="colormap">Colours</label>
+                <select id="colormap">
+                  <option value="inverted">Ink on paper</option>
+                  <option value="gray">Greyscale</option>
+                  <option value="heat">Heat</option>
+                  <option value="green">Night green</option>
+                  <option value="diverging">Blue–red (for differences)</option>
+                </select>
+              </div>
+            </div>
+          </div>
+
+          <div class="panel">
+            <h3>Overlays</h3>
+            <div class="overlays">
+              <label class="check"><input id="ov-cross" type="checkbox" checked> Target marker</label>
+              <label class="check"><input id="ov-compass" type="checkbox" checked> Compass &amp; scale</label>
+              <label class="check"><input id="ov-gaia" type="checkbox"> Gaia DR3 stars</label>
+              <label class="check"><input id="ov-flags" type="checkbox"> Flagged pixels</label>
+            </div>
+            <p class="hint" style="margin:.6rem 0 0">Gaia circles move with each star’s proper motion to the date of the frame.</p>
+          </div>
+
+          <div class="panel">
+            <h3>Share</h3>
+            <div class="share-row">
+              <button id="copy-link" class="btn small" type="button">Copy link</button>
+              <button id="copy-embed" class="btn small ghost" type="button">Copy embed code</button>
+              <button id="save-png" class="btn small ghost" type="button">Save PNG</button>
+            </div>
+            <p class="hint" style="margin:.7rem 0 0">Keys: <kbd>Space</kbd> play/pause · <kbd>←</kbd> <kbd>→</kbd> step</p>
+          </div>
+        </div>
+      </div>
+
+      <section class="analysis" aria-label="Measurements">
+        <div class="analysis-tabs" role="tablist">
+          <button type="button" class="active" data-chart="spectrum">Spectrum</button>
+          <button type="button" data-chart="lightcurve">Light curve</button>
+          <button type="button" data-chart="table">Image list &amp; flags</button>
+        </div>
+        <div class="analysis-body">
+          <div id="chart-panel">
+            <canvas id="chart"></canvas>
+            <div id="chart-note"></div>
+          </div>
+          <div id="meta-panel" class="table-wrap" hidden>
+            <table>
+              <thead><tr><th>#</th><th>Date (UTC)</th><th>Epoch</th><th>Det.</th><th>λ (µm)</th><th>Flagged</th><th>Flag bits at probe</th><th>Data</th></tr></thead>
+              <tbody id="meta-body"><tr><td colspan="8" class="muted">No images loaded.</td></tr></tbody>
+            </table>
+            <p class="hint" style="padding:.6rem .8rem;margin:0">* wavelength at the centre of the detector band. Flag bit meanings are listed in the SPHEREx Explanatory Supplement (see the Data page).</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="aladin-section" id="aladin-section">
+        <div class="aladin-head">
+          <div>
+            <p class="eyebrow">Reference sky</p>
+            <h2 style="margin:0">Compare with other surveys</h2>
+          </div>
+          <div class="controls-inline">
+            <select id="aladin-survey" aria-label="Background survey"></select>
+            <label class="check"><input id="aladin-gaia" type="checkbox" checked> Gaia DR3</label>
+            <label class="check"><input id="aladin-wise" type="checkbox"> AllWISE</label>
+          </div>
+        </div>
+        <div id="aladin-lite"></div>
+        <p class="hint" style="margin-top:.6rem">Interactive atlas by Aladin Lite (CDS, Strasbourg). Click a catalogue marker to see its measurements.</p>
+      </section>
+
+    </main>
+  </div>
+
+  <footer class="site-footer">
+    <div class="wrap footer-row">
+      <p>© <span data-year>2026</span> SkyFolder · Built for the 2026 NASA Space Apps Challenge. Not an official NASA product.</p>
+      <nav aria-label="Footer">
+        <a href="viewer.html">Open viewer</a>
+        <a href="guide.html">Guide</a>
+        <a href="data.html#resources">Resources</a>
+        <a href="https://irsa.ipac.caltech.edu/Missions/spherex.html" rel="noopener">SPHEREx at IRSA</a>
+      </nav>
+    </div>
+  </footer>
+  <script src="assets/js/common.js" defer></script>
+  <script type="module" src="assets/js/viewer.js"></script>
+</body>
+</html>

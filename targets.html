@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Test targets · SkyFolder</title>
+  <meta name="description" content="Barnard's Star, Epsilon Indi B, WISE 0855, RW Aurigae and R Draconis, each one click away in the SPHEREx viewer.">
+  <meta property="og:title" content="Test targets · SkyFolder">
+  <meta property="og:description" content="Barnard's Star, Epsilon Indi B, WISE 0855, RW Aurigae and R Draconis, each one click away in the SPHEREx viewer.">
+  <meta name="theme-color" content="#e5ecd4">
+  <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Inter+Tight:wght@700;800&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+  <a class="skip" href="#main">Skip to content</a>
+  <header class="site-header">
+    <div class="wrap header-row">
+      <a class="brand" href="index.html">
+        <svg viewBox="0 0 64 64" aria-hidden="true"><path d="M6 18a6 6 0 0 1 6-6h14l6 6h20a6 6 0 0 1 6 6v4H6z" fill="#e2bc7c"/><path d="M6 24a6 6 0 0 1 6-6h40a6 6 0 0 1 6 6v22a6 6 0 0 1-6 6H12a6 6 0 0 1-6-6z" fill="#95bd69"/><circle cx="25" cy="35" r="3" fill="#161616"/><circle cx="33" cy="32" r="3" fill="#161616" opacity=".55"/><circle cx="41" cy="29" r="3" fill="#161616" opacity=".25"/></svg>
+        <span><b>SkyFolder</b><small>SPHEREx motion viewer</small></span>
+      </a>
+      <nav class="tabs" aria-label="Main">
+        <a class="tab" href="index.html">Home</a>
+        <a class="tab" href="viewer.html">Viewer</a>
+        <a class="tab active" href="targets.html" aria-current="page">Test targets</a>
+        <a class="tab" href="guide.html">Guide</a>
+        <a class="tab" href="data.html">Data</a>
+        <a class="tab" href="about.html">About</a>
+      </nav>
+    </div>
+  </header>
+
+  <div class="wrap">
+    <main id="main" class="sheet">
+      <div class="page-intro">
+        <p class="eyebrow">Test targets</p>
+        <h1 style="font-size:clamp(2rem,4.4vw,3.2rem)">Five objects to calibrate your eye</h1>
+        <p class="lead">These targets were picked to test the tool: three that move and two that change brightness. Each button opens the viewer with settings that suit the object.</p>
+      </div>
+
+      <div class="grid two">
+        <article class="folder target-card"><span class="label">Mover · nearby star</span>
+          <h3>Barnard’s Star</h3>
+          <p class="kind">Fastest proper motion of any star, about 10.3″ per year</p>
+          <p>A red dwarf only six light-years away. Between SPHEREx visits six months apart it shifts by about five arcseconds, close to one SPHEREx pixel. Over a year the step is easy to see when you blink epoch stacks.</p>
+          <dl>
+            <dt>RA (2026.0)</dt><dd>17h57m47.58s</dd>
+            <dt>Dec (2026.0)</dt><dd>+04°46′04.6″</dd>
+            <dt>Try</dt><dd>Epoch stacks, then subtract the median sky</dd>
+          </dl>
+          <a class="btn" href="viewer.html?target=barnard">Open in viewer</a>
+        </article>
+
+        <article class="folder green target-card"><span class="label">Mover · brown dwarfs</span>
+          <h3>Epsilon Indi B</h3>
+          <p class="kind">Two brown dwarfs orbiting the star Epsilon Indi A</p>
+          <p>The pair Ba and Bb sit less than an arcsecond apart, so SPHEREx sees them as a single point. The system moves almost 4.7″ per year together with its host star, about 1500″ away. Compare the long-wavelength detectors, where cold brown dwarfs are brightest.</p>
+          <dl>
+            <dt>RA (2026.0)</dt><dd>22h04m23.07s</dd>
+            <dt>Dec (2026.0)</dt><dd>−56°48′03.6″</dd>
+            <dt>Try</dt><dd>Detector D5 or D6, epoch stacks</dd>
+          </dl>
+          <a class="btn" href="viewer.html?target=eps-indi-b">Open in viewer</a>
+        </article>
+
+        <article class="folder target-card"><span class="label">Mover · coldest brown dwarf</span>
+          <h3>WISE 0855−0714</h3>
+          <p class="kind">About 8″ per year, with a temperature near 250 K</p>
+          <p>This object is almost invisible at short wavelengths and brightest near 4.5 µm, so it opens on detector D6 with the median sky subtracted. The coordinates are those given in the challenge. The object has moved west since then, so look a little to the right of the marker.</p>
+          <dl>
+            <dt>RA</dt><dd>08h55m10.831s</dd>
+            <dt>Dec</dt><dd>−07°14′42.53″</dd>
+            <dt>Try</dt><dd>D6, epoch stacks, minus median sky</dd>
+          </dl>
+          <a class="btn" href="viewer.html?target=wise0855">Open in viewer</a>
+        </article>
+
+        <article class="folder paper target-card"><span class="label">Variable · young star</span>
+          <h3>RW Aurigae</h3>
+          <p class="kind">T Tauri star with irregular dimming events</p>
+          <p>A young binary still surrounded by gas and dust. Clumps in its disk can block the light for months. Open the light-curve tab to follow its brightness from image to image.</p>
+          <dl>
+            <dt>RA</dt><dd>05h07m49.54s</dd>
+            <dt>Dec</dt><dd>+30°24′05.1″</dd>
+            <dt>Try</dt><dd>Every image, Light curve tab</dd>
+          </dl>
+          <a class="btn" href="viewer.html?target=rw-aur">Open in viewer</a>
+        </article>
+
+        <article class="folder paper target-card"><span class="label">Variable · Mira star</span>
+          <h3>R Draconis</h3>
+          <p class="kind">Pulsating red giant with a cycle of about eight months</p>
+          <p>Mira variables swell and shrink, changing brightness by several magnitudes in visible light and less in the infrared. Its spectrum shows deep molecular bands, a good test for the spectrum tab.</p>
+          <dl>
+            <dt>RA</dt><dd>16h32m40.18s</dd>
+            <dt>Dec</dt><dd>+66°45′17.9″</dd>
+            <dt>Try</dt><dd>Spectrum tab with exact wavelengths</dd>
+          </dl>
+          <a class="btn" href="viewer.html?target=r-dra&amp;precise=1">Open in viewer</a>
+        </article>
+
+        <article class="folder target-card"><span class="label">Your turn</span>
+          <h3>Any position you like</h3>
+          <p class="kind">The whole sky, refreshed every six months</p>
+          <p>Paste coordinates from a catalogue, a paper or a citizen-science forum. Links work with decimal degrees or sexagesimal values, for example:</p>
+          <p><code>viewer.html?ra=133.795&amp;dec=-7.245&amp;fov=6</code></p>
+          <a class="btn" href="viewer.html">Open empty viewer</a>
+        </article>
+      </div>
+
+      <div class="callout" style="margin-top:2.4rem">
+        <p><strong>About the positions.</strong> For the two fast movers with well-measured proper motions, SkyFolder moves the J2000 catalogue position forward to 2026.0 before searching, so the target lands near the centre of the field. Objects you look up by name get the same correction when the name service reports a proper motion.</p>
+      </div>
+
+    </main>
+  </div>
+
+  <footer class="site-footer">
+    <div class="wrap footer-row">
+      <p>© <span data-year>2026</span> SkyFolder · Built for the 2026 NASA Space Apps Challenge. Not an official NASA product.</p>
+      <nav aria-label="Footer">
+        <a href="viewer.html">Open viewer</a>
+        <a href="guide.html">Guide</a>
+        <a href="data.html#resources">Resources</a>
+        <a href="https://irsa.ipac.caltech.edu/Missions/spherex.html" rel="noopener">SPHEREx at IRSA</a>
+      </nav>
+    </div>
+  </footer>
+  <script src="assets/js/common.js" defer></script>
+</body>
+</html>

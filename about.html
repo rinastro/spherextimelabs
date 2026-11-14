@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>About · SkyFolder</title>
+  <meta name="description" content="SkyFolder is a 2026 NASA Space Apps Challenge project for the Planet X and SPHEREx challenge.">
+  <meta property="og:title" content="About · SkyFolder">
+  <meta property="og:description" content="SkyFolder is a 2026 NASA Space Apps Challenge project for the Planet X and SPHEREx challenge.">
+  <meta name="theme-color" content="#e5ecd4">
+  <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Inter+Tight:wght@700;800&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+  <a class="skip" href="#main">Skip to content</a>
+  <header class="site-header">
+    <div class="wrap header-row">
+      <a class="brand" href="index.html">
+        <svg viewBox="0 0 64 64" aria-hidden="true"><path d="M6 18a6 6 0 0 1 6-6h14l6 6h20a6 6 0 0 1 6 6v4H6z" fill="#e2bc7c"/><path d="M6 24a6 6 0 0 1 6-6h40a6 6 0 0 1 6 6v22a6 6 0 0 1-6 6H12a6 6 0 0 1-6-6z" fill="#95bd69"/><circle cx="25" cy="35" r="3" fill="#161616"/><circle cx="33" cy="32" r="3" fill="#161616" opacity=".55"/><circle cx="41" cy="29" r="3" fill="#161616" opacity=".25"/></svg>
+        <span><b>SkyFolder</b><small>SPHEREx motion viewer</small></span>
+      </a>
+      <nav class="tabs" aria-label="Main">
+        <a class="tab" href="index.html">Home</a>
+        <a class="tab" href="viewer.html">Viewer</a>
+        <a class="tab" href="targets.html">Test targets</a>
+        <a class="tab" href="guide.html">Guide</a>
+        <a class="tab" href="data.html">Data</a>
+        <a class="tab active" href="about.html" aria-current="page">About</a>
+      </nav>
+    </div>
+  </header>
+
+  <div class="wrap">
+    <main id="main" class="sheet">
+      <div class="page-intro">
+        <p class="eyebrow">About</p>
+        <h1 style="font-size:clamp(2rem,4.4vw,3.2rem)">A blink comparator for everyone</h1>
+        <p class="lead">SkyFolder is our answer to the “Planet X and SPHEREx” challenge of the 2026 NASA Space Apps Challenge: a public web tool that shows how the SPHEREx sky changes over time.</p>
+      </div>
+
+      <div class="grid two">
+        <div class="folder green"><span class="label">The challenge</span>
+          <h3>Too much sky for one person</h3>
+          <p>SPHEREx images more than a billion objects in 102 colours, twice a year. Comets, asteroids, nearby stars and brown dwarfs give themselves away by moving between images. The task: let anyone enter a position and watch the images play back like a short film.</p>
+        </div>
+        <div class="folder"><span class="label">Our approach</span>
+          <h3>Simple first, deep when needed</h3>
+          <p>One search box and one play button get you started. Stacking, subtraction, spectra, overlays and shareable links are there when you want them, without leaving the page or installing anything.</p>
+        </div>
+      </div>
+
+      <div class="prose">
+        <h2>What we built against the brief</h2>
+        <ul class="checklist">
+          <li>Enter RA and declination (or an object name) and see a time series of SPHEREx images played as an animation.</li>
+          <li>Tested on Barnard’s Star, Epsilon Indi B, WISE 0855−0714, RW Aurigae and R Draconis, each available in one click.</li>
+          <li>Easy to update: data releases live in a single configuration list and are queried live from IRSA.</li>
+          <li>Creative use of the 102 bands: per-detector selection, noise-weighted stacking of all six detectors, and spectra built on the fly.</li>
+          <li>Adding and subtracting images taken at different times: epoch stacks plus three kinds of difference imaging.</li>
+          <li>User-selectable field of view from 2′ to 30′.</li>
+          <li>Overlays from other missions: Gaia DR3 with proper motions applied per frame, and AllWISE, 2MASS, DSS and Pan-STARRS through Aladin Lite.</li>
+          <li>Query by URL and embed in other websites with one click.</li>
+          <li>Metadata display, including quality-flag maps and per-pixel flag bits.</li>
+        </ul>
+
+        <h2>Under the hood</h2>
+        <p>The site is plain HTML, CSS and JavaScript with no build step and no server. It can be hosted on GitHub Pages or any static host. All processing happens in the visitor’s browser: archive queries, FITS reading, WCS resampling with distortion correction, stacking, photometry and plotting.</p>
+
+        <h2>Team</h2>
+        <p>Built during the 2026 NASA Space Apps Challenge. Contributions, bug reports and ideas are welcome on the project’s GitHub repository.</p>
+
+        <h2>Disclaimer</h2>
+        <p class="muted">SkyFolder is an independent project made for the NASA Space Apps Challenge. It is not an official NASA, IPAC or Caltech product, and NASA does not endorse it. SPHEREx data are provided by the NASA/IPAC Infrared Science Archive, and users should follow the archive’s data-use and citation guidelines.</p>
+      </div>
+
+    </main>
+  </div>
+
+  <footer class="site-footer">
+    <div class="wrap footer-row">
+      <p>© <span data-year>2026</span> SkyFolder · Built for the 2026 NASA Space Apps Challenge. Not an official NASA product.</p>
+      <nav aria-label="Footer">
+        <a href="viewer.html">Open viewer</a>
+        <a href="guide.html">Guide</a>
+        <a href="data.html#resources">Resources</a>
+        <a href="https://irsa.ipac.caltech.edu/Missions/spherex.html" rel="noopener">SPHEREx at IRSA</a>
+      </nav>
+    </div>
+  </footer>
+  <script src="assets/js/common.js" defer></script>
+</body>
+</html>

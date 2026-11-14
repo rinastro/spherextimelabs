@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>SkyFolder · Find what moves in the SPHEREx sky</title>
+  <meta name="description" content="A simple web viewer that blinks NASA SPHEREx infrared images of any patch of sky so anyone can spot moving and variable objects.">
+  <meta property="og:title" content="SkyFolder · Find what moves in the SPHEREx sky">
+  <meta property="og:description" content="A simple web viewer that blinks NASA SPHEREx infrared images of any patch of sky so anyone can spot moving and variable objects.">
+  <meta name="theme-color" content="#e5ecd4">
+  <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Inter+Tight:wght@700;800&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+  <a class="skip" href="#main">Skip to content</a>
+  <header class="site-header">
+    <div class="wrap header-row">
+      <a class="brand" href="index.html">
+        <svg viewBox="0 0 64 64" aria-hidden="true"><path d="M6 18a6 6 0 0 1 6-6h14l6 6h20a6 6 0 0 1 6 6v4H6z" fill="#e2bc7c"/><path d="M6 24a6 6 0 0 1 6-6h40a6 6 0 0 1 6 6v22a6 6 0 0 1-6 6H12a6 6 0 0 1-6-6z" fill="#95bd69"/><circle cx="25" cy="35" r="3" fill="#161616"/><circle cx="33" cy="32" r="3" fill="#161616" opacity=".55"/><circle cx="41" cy="29" r="3" fill="#161616" opacity=".25"/></svg>
+        <span><b>SkyFolder</b><small>SPHEREx motion viewer</small></span>
+      </a>
+      <nav class="tabs" aria-label="Main">
+        <a class="tab active" href="index.html" aria-current="page">Home</a>
+        <a class="tab" href="viewer.html">Viewer</a>
+        <a class="tab" href="targets.html">Test targets</a>
+        <a class="tab" href="guide.html">Guide</a>
+        <a class="tab" href="data.html">Data</a>
+        <a class="tab" href="about.html">About</a>
+      </nav>
+    </div>
+  </header>
+
+  <div class="wrap">
+    <main id="main" class="sheet">
+      <section class="hero">
+        <div>
+          <p class="eyebrow">NASA SPHEREx · Near-infrared all-sky survey</p>
+          <h1><span>Find what</span><span>moves in the</span><span>infrared sky.</span></h1>
+          <p class="lead">Type a sky position and SkyFolder flips through SPHEREx images of that patch like a short film. Stars that wander, brown dwarfs that creep, and variables that brighten and fade stand out in seconds.</p>
+          <div class="btn-row">
+            <a class="btn" href="viewer.html">Open the viewer</a>
+            <a class="btn ghost" href="targets.html">Try a test target</a>
+          </div>
+        </div>
+
+        <div class="stack" aria-hidden="true">
+          <div class="sheetcard s1"><span class="t">Gaia &amp; WISE overlays</span></div>
+          <div class="sheetcard s2"><span class="t">Spectra on the fly</span></div>
+          <div class="sheetcard s3"><span class="t">Difference imaging</span></div>
+          <div class="sheetcard s4"><span class="t">Epoch stacks</span></div>
+          <div class="front">
+            <span class="t">Blink comparator</span>
+            <strong>102 colours of<br>infrared, one<br>moving sky.</strong>
+            <span class="line">What SkyFolder<br>does for you</span>
+          </div>
+        </div>
+      </section>
+
+      <section>
+        <p class="eyebrow">How it works</p>
+        <h2>Three steps from coordinates to discovery</h2>
+        <div class="steps">
+          <div class="folder"><span class="label">Enter</span>
+            <h3>Pick a patch of sky</h3>
+            <p>Type Right Ascension and declination, look up an object by name, or pick one of the test targets. Every view gets a shareable link.</p>
+          </div>
+          <div class="folder green"><span class="label">Load</span>
+            <h3>Fetch SPHEREx cutouts</h3>
+            <p>Small cutouts come straight from NASA/IPAC’s Infrared Science Archive, then get rotated onto one north-up grid so frames line up.</p>
+          </div>
+          <div class="folder"><span class="label">Blink</span>
+            <h3>Play, stack, subtract</h3>
+            <p>Watch the frames as an animation, add images from the same visit to beat the noise, and subtract epochs to make movers pop out.</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="band">
+        <div>
+          <p class="eyebrow" style="color:#b8e07f">Why motion matters</p>
+          <h2>Pluto was found by blinking two photographs.</h2>
+          <p>Comparing images of the same field taken at different times is one of the oldest discovery tools in astronomy. Nearby stars and brown dwarfs drift against the background, asteroids and comets race across it, and variable stars change brightness.</p>
+          <p>SPHEREx maps the whole sky every six months in 102 near-infrared colours. That is far more data than anyone can inspect alone, so SkyFolder makes the inspection quick enough for anyone to help.</p>
+          <a class="btn green" href="guide.html">Learn how to spot a mover</a>
+        </div>
+        <div class="blink-demo" aria-label="Animated illustration of a star moving against fixed background stars">
+          <i style="width:5px;height:5px;left:18%;top:22%"></i>
+          <i style="width:3px;height:3px;left:72%;top:18%"></i>
+          <i style="width:7px;height:7px;left:64%;top:70%"></i>
+          <i style="width:4px;height:4px;left:28%;top:78%"></i>
+          <i style="width:3px;height:3px;left:84%;top:44%"></i>
+          <i style="width:4px;height:4px;left:12%;top:52%"></i>
+          <i class="mover"></i>
+          <span>epoch 1 → 2 → 3</span>
+        </div>
+      </section>
+
+      <section>
+        <p class="eyebrow">What’s in the folder</p>
+        <h2>Tools built around SPHEREx data</h2>
+        <div class="grid three">
+          <div class="folder paper"><span class="label">Blink</span>
+            <h3>Animated time series</h3>
+            <p>Every image covering your position, sorted by date and played as a loop. Step frame by frame with the arrow keys.</p>
+          </div>
+          <div class="folder paper"><span class="label">Stack</span>
+            <h3>Per-epoch co-adds</h3>
+            <p>Combine all images from one visit, or one detector at a time, for a cleaner picture of each epoch.</p>
+          </div>
+          <div class="folder paper"><span class="label">Subtract</span>
+            <h3>Difference imaging</h3>
+            <p>Subtract the first epoch, the previous one, or the median sky. Static stars vanish; anything that moved leaves a dark–bright pair.</p>
+          </div>
+          <div class="folder paper"><span class="label">Spectrum</span>
+            <h3>Spectra and light curves</h3>
+            <p>Click any pixel to measure brightness across up to 102 wavelengths, or follow it over time to catch variable stars.</p>
+          </div>
+          <div class="folder paper"><span class="label">Overlay</span>
+            <h3>Gaia DR3 and AllWISE</h3>
+            <p>Gaia positions move with their proper motions frame by frame. A full Aladin Lite sky atlas sits below the viewer.</p>
+          </div>
+          <div class="folder paper"><span class="label">Share</span>
+            <h3>Links and embeds</h3>
+            <p>Coordinates and settings live in the URL. Copy a link, save a PNG, or embed the viewer on another site.</p>
+          </div>
+        </div>
+      </section>
+
+      <section>
+        <div class="folder green" style="margin-top:2.5rem"><span class="label">Start here</span>
+          <h2 style="margin-bottom:.4em">Not sure where to look?</h2>
+          <p>Begin with Barnard’s Star, the fastest-moving star in our sky, or WISE 0855, the coldest brown dwarf known. Each test target opens with settings that show its motion or variability best.</p>
+          <a class="btn" href="targets.html">Browse test targets</a>
+        </div>
+      </section>
+
+    </main>
+  </div>
+
+  <footer class="site-footer">
+    <div class="wrap footer-row">
+      <p>© <span data-year>2026</span> SkyFolder · Built for the 2026 NASA Space Apps Challenge. Not an official NASA product.</p>
+      <nav aria-label="Footer">
+        <a href="viewer.html">Open viewer</a>
+        <a href="guide.html">Guide</a>
+        <a href="data.html#resources">Resources</a>
+        <a href="https://irsa.ipac.caltech.edu/Missions/spherex.html" rel="noopener">SPHEREx at IRSA</a>
+      </nav>
+    </div>
+  </footer>
+  <script src="assets/js/common.js" defer></script>
+</body>
+</html>

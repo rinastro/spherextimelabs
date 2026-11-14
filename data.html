@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Data · SkyFolder</title>
+  <meta name="description" content="Where SkyFolder's SPHEREx images come from, how they are processed in the browser, and how to add new data releases.">
+  <meta property="og:title" content="Data · SkyFolder">
+  <meta property="og:description" content="Where SkyFolder's SPHEREx images come from, how they are processed in the browser, and how to add new data releases.">
+  <meta name="theme-color" content="#e5ecd4">
+  <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Inter+Tight:wght@700;800&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+  <a class="skip" href="#main">Skip to content</a>
+  <header class="site-header">
+    <div class="wrap header-row">
+      <a class="brand" href="index.html">
+        <svg viewBox="0 0 64 64" aria-hidden="true"><path d="M6 18a6 6 0 0 1 6-6h14l6 6h20a6 6 0 0 1 6 6v4H6z" fill="#e2bc7c"/><path d="M6 24a6 6 0 0 1 6-6h40a6 6 0 0 1 6 6v22a6 6 0 0 1-6 6H12a6 6 0 0 1-6-6z" fill="#95bd69"/><circle cx="25" cy="35" r="3" fill="#161616"/><circle cx="33" cy="32" r="3" fill="#161616" opacity=".55"/><circle cx="41" cy="29" r="3" fill="#161616" opacity=".25"/></svg>
+        <span><b>SkyFolder</b><small>SPHEREx motion viewer</small></span>
+      </a>
+      <nav class="tabs" aria-label="Main">
+        <a class="tab" href="index.html">Home</a>
+        <a class="tab" href="viewer.html">Viewer</a>
+        <a class="tab" href="targets.html">Test targets</a>
+        <a class="tab" href="guide.html">Guide</a>
+        <a class="tab active" href="data.html" aria-current="page">Data</a>
+        <a class="tab" href="about.html">About</a>
+      </nav>
+    </div>
+  </header>
+
+  <div class="wrap">
+    <main id="main" class="sheet">
+      <div class="page-intro">
+        <p class="eyebrow">Data</p>
+        <h1 style="font-size:clamp(2rem,4.4vw,3.2rem)">Where the pictures come from</h1>
+        <p class="lead">SkyFolder shows public SPHEREx spectral images served by the NASA/IPAC Infrared Science Archive (IRSA). Nothing is stored on this site; every frame is fetched live.</p>
+      </div>
+
+      <div class="grid three">
+        <div class="folder green"><span class="label">Mission</span>
+          <h3>SPHEREx</h3>
+          <p>NASA’s Spectro-Photometer for the History of the Universe, Epoch of Reionization and Ices Explorer, launched in March 2025.</p>
+        </div>
+        <div class="folder"><span class="label">Survey</span>
+          <h3>Whole sky every six months</h3>
+          <p>Each part of the sky is revisited about twice a year, which is what makes motion and variability visible.</p>
+        </div>
+        <div class="folder"><span class="label">Colours</span>
+          <h3>102 infrared bands</h3>
+          <p>From 0.75 to 5.0 µm, sensitive to water, carbon dioxide and carbon monoxide ices and to cold, dim objects.</p>
+        </div>
+      </div>
+
+      <div class="prose">
+        <h2>The six detectors</h2>
+        <p>SPHEREx uses linear variable filters: the wavelength changes smoothly across each detector. A star lands in a different narrow band every time the telescope points at it.</p>
+      </div>
+      <div class="table-wrap" style="max-width:760px">
+        <table>
+          <thead><tr><th>Detector</th><th>Wavelength range</th><th>Good for</th></tr></thead>
+          <tbody>
+            <tr><td>D1</td><td>0.75–1.09 µm</td><td>Stars, galaxies, matching optical surveys</td></tr>
+            <tr><td>D2</td><td>1.10–1.62 µm</td><td>Stars, galaxies, cool dwarfs</td></tr>
+            <tr><td>D3</td><td>1.63–2.41 µm</td><td>Dusty and embedded stars</td></tr>
+            <tr><td>D4</td><td>2.42–3.82 µm</td><td>Water ice, hydrocarbons</td></tr>
+            <tr><td>D5</td><td>3.83–4.41 µm</td><td>Carbon dioxide ice, cold brown dwarfs</td></tr>
+            <tr><td>D6</td><td>4.42–5.00 µm</td><td>Carbon monoxide, the coldest brown dwarfs</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="prose">
+        <h2>How SkyFolder reads the archive</h2>
+        <ol>
+          <li><strong>Search.</strong> The viewer asks IRSA’s Simple Image Access service (SIA v2) for every SPHEREx spectral image that contains your position.</li>
+          <li><strong>Cut out.</strong> For each image it requests only a small square around your position from IRSA’s cutout service, instead of the full multi-hundred-megabyte file.</li>
+          <li><strong>Read.</strong> A small FITS reader in the browser reads the <code>IMAGE</code> and <code>FLAGS</code> extensions and, when asked, the <code>WCS-WAVE</code> wavelength table. It stops downloading as soon as those parts have arrived.</li>
+          <li><strong>Align.</strong> Each cutout’s world coordinate system, including its distortion terms, is used to resample it onto a common north-up grid.</li>
+        </ol>
+
+        <h2 id="releases">Keeping up with new releases</h2>
+        <p>SPHEREx data arrives quickly: weekly quick releases, followed by larger, fully processed data releases. SkyFolder always asks the archive live, so new images in an existing collection show up automatically. When IRSA opens a new collection, add one line to <code>assets/js/config.js</code>:</p>
+<pre class="table-wrap" style="padding:1rem;overflow:auto"><code>collections: [
+  { id: 'spherex_dr1', label: 'Data Release 1' },   // new release first
+  { id: 'spherex_qr',  label: 'Quick Release · Wide Survey' },
+  ...
+]</code></pre>
+        <p>The first entry becomes the default. If it has no images for a position, the viewer falls back to the next collection automatically.</p>
+
+        <h2>Quality flags</h2>
+        <p>Every SPHEREx image comes with a flag map that marks saturated, hot, cosmic-ray-hit or otherwise unreliable pixels. SkyFolder can shade any flagged pixel and lists the flag bits at the pixel you click. The meaning of each bit is in the <a href="https://irsa.ipac.caltech.edu/data/SPHEREx/docs/SPHEREx_Expsupp_QR.pdf" rel="noopener">SPHEREx Explanatory Supplement</a>.</p>
+
+        <h2>Credits and citation</h2>
+        <p>This work uses data from SPHEREx, a NASA mission, served by the NASA/IPAC Infrared Science Archive. Reference stars come from the European Space Agency’s Gaia mission (Data Release 3) and from AllWISE via the VizieR service. The interactive atlas is Aladin Lite and name look-up uses Sesame, both from CDS, Strasbourg. If you publish results based on SPHEREx data, follow IRSA’s acknowledgement and citation guidance for the release you used.</p>
+
+        <h2 id="resources">Resources</h2>
+      </div>
+      <ul class="resource-list" style="max-width:760px">
+        <li><a href="https://irsa.ipac.caltech.edu/Missions/spherex.html" rel="noopener">NASA/IPAC Infrared Science Archive: SPHEREx</a><p>Mission page, data releases, documentation and the archive’s own data explorer.</p></li>
+        <li><a href="https://caltech-ipac.github.io/irsa-tutorials/spherex/" rel="noopener">SPHEREx tutorial notebooks</a><p>Python examples for finding images, making cutouts and extracting spectra.</p></li>
+        <li><a href="http://byw.tools/wiseview" rel="noopener">WiseView</a><p>A blink viewer for the earlier WISE mission, used by volunteers for hundreds of discoveries, and an inspiration for this tool.</p></li>
+        <li><a href="https://archive.stsci.edu/missions-and-data/gaia" rel="noopener">Gaia mission data (DR3)</a><p>Precise positions, proper motions and parallaxes for nearly two billion stars.</p></li>
+        <li><a href="https://aladin.cds.unistra.fr/AladinLite/" rel="noopener">Aladin Lite</a><p>Browser-based sky atlas from the Strasbourg Astronomical Data Center.</p></li>
+        <li><a href="https://www.asc-csa.gc.ca/eng/satellites/neossat/" rel="noopener">NEOSSat (Canadian Space Agency)</a><p>The first space telescope dedicated to tracking asteroids, comets, satellites and debris.</p></li>
+        <li><a href="https://www.cadc-ccda.hia-iha.nrc-cnrc.gc.ca/en/" rel="noopener">Canadian Astronomy Data Centre</a><p>Observations from Canadian and international telescopes and space missions.</p></li>
+        <li><a href="https://backyardworlds.org" rel="noopener">Backyard Worlds: Planet 9</a><p>The citizen-science project where volunteers search for brown dwarfs and nearby worlds.</p></li>
+      </ul>
+
+    </main>
+  </div>
+
+  <footer class="site-footer">
+    <div class="wrap footer-row">
+      <p>© <span data-year>2026</span> SkyFolder · Built for the 2026 NASA Space Apps Challenge. Not an official NASA product.</p>
+      <nav aria-label="Footer">
+        <a href="viewer.html">Open viewer</a>
+        <a href="guide.html">Guide</a>
+        <a href="data.html#resources">Resources</a>
+        <a href="https://irsa.ipac.caltech.edu/Missions/spherex.html" rel="noopener">SPHEREx at IRSA</a>
+      </nav>
+    </div>
+  </footer>
+  <script src="assets/js/common.js" defer></script>
+</body>
+</html>
