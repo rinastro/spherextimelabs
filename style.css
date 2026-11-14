@@ -1,21 +1,21 @@
 :root {
-  --bg: #e5ecd4;
-  --paper: #f7f2e6;
-  --paper-2: #fbf8f0;
-  --kraft: #ebcb92;
-  --kraft-2: #e2bc7c;
-  --kraft-edge: #cfa463;
-  --green: #95bd69;
-  --green-2: #84ad58;
-  --green-dark: #5d8536;
-  --ink: #161616;
-  --muted: #55544a;
-  --line: rgba(22, 22, 22, 0.12);
-  --night: #15160f;
+  --bg: #F7F3E6;
+  --paper: #FFFDF8;
+  --paper-2: #FFFFFF;
+  --kraft: #FFA142;
+  --kraft-2: #B1D5F0;
+  --kraft-edge: #1A1AA7;
+  --green: #E3F40C;
+  --green-2: #D2E30A;
+  --green-dark: #1A1AA7;
+  --ink: #28211C;
+  --muted: #5E554D;
+  --line: rgba(40, 33, 28, 0.14);
+  --night: #28211C;
   --radius: 18px;
-  --shadow: 0 1px 0 rgba(255, 255, 255, 0.6) inset, 0 10px 24px -14px rgba(60, 50, 20, 0.45);
-  --font: 'Inter', system-ui, -apple-system, 'Segoe UI', sans-serif;
-  --display: 'Inter Tight', 'Inter', system-ui, sans-serif;
+  --shadow: 0 10px 24px -14px rgba(26, 26, 167, 0.35);
+  --font: 'Montserrat', system-ui, -apple-system, 'Segoe UI', sans-serif;
+  --display: 'Montserrat', system-ui, sans-serif;
   --mono: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, monospace;
 }
 
