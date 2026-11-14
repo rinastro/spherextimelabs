@@ -42,6 +42,31 @@
         <p class="lead">Enter a position, load the images, and press play. Click the image to measure a spectrum or light curve at that spot.</p>
       </div>
 
+      <section class="folder paper embed-intro">
+        <span class="label">Embedded tool</span>
+        <h2>Try it first: a live, embedded example</h2>
+        <p>The window below is an <strong>embed</strong>: a complete copy of the Time Lab tool running inside this page, the same way a YouTube video can sit inside a blog post. It is loaded with ready-made settings, so it starts searching straight away:</p>
+        <ul class="embed-facts">
+          <li><b>Position</b> RA 167.2°, Dec +5.15°</li>
+          <li><b>Date</b> 14 December 2025</li>
+          <li><b>Detector</b> D5 · 3.83–4.41 µm</li>
+        </ul>
+        <p>Everything is set through the link (URL parameters), which means anyone can put the same view on their own website, course page or project wiki with one line of HTML. You can use the embedded tool right here, or scroll down to the full viewer to search any patch of sky yourself.</p>
+        <div class="embed-frame">
+          <iframe title="SPHEREx Time Lab"
+            src="https://romantkachenko-dev.github.io/spherex-time-lab-source/?ra=167.2&amp;dec=5.15&amp;start=2025-12-14&amp;end=2025-12-14&amp;detector=5&amp;search=1&amp;embed=1&amp;lang=en"
+            loading="lazy" allowfullscreen></iframe>
+        </div>
+        <details class="embed-code">
+          <summary>Embed this view on your own site</summary>
+          <p>Copy this code and paste it into any HTML page:</p>
+          <pre><code>&lt;iframe title="SPHEREx Time Lab"
+  src="https://romantkachenko-dev.github.io/spherex-time-lab-source/?ra=167.2&amp;amp;dec=5.15&amp;amp;start=2025-12-14&amp;amp;end=2025-12-14&amp;amp;detector=5&amp;amp;search=1&amp;amp;embed=1&amp;amp;lang=en"
+  width="100%" height="850" loading="lazy"&gt;&lt;/iframe&gt;</code></pre>
+        </details>
+      </section>
+
+      
       <form id="search-form" class="folder search-folder" autocomplete="off">
         <span class="label">Search</span>
         <div class="search-grid">
@@ -222,17 +247,6 @@
             </table>
             <p class="hint" style="padding:.6rem .8rem;margin:0">* wavelength at the centre of the detector band. Flag bit meanings are listed in the SPHEREx Explanatory Supplement (see the Data page).</p>
           </div>
-        </div>
-      </section>
-
-      <section class="folder paper" style="margin-top:3rem">
-        <span class="label">Embedded tool</span>
-        <h2>SPHEREx Time Lab: live example</h2>
-        <p class="muted">An example view loaded with preset coordinates, date and detector.</p>
-        <div class="embed-frame">
-          <iframe title="SPHEREx Time Lab"
-            src="https://romantkachenko-dev.github.io/spherex-time-lab-source/?ra=167.2&amp;dec=5.15&amp;start=2025-12-14&amp;end=2025-12-14&amp;detector=5&amp;search=1&amp;embed=1&amp;lang=en"
-            loading="lazy" allowfullscreen></iframe>
         </div>
       </section>
       
