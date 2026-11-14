@@ -1,8 +1,8 @@
-# We don't kno the name yet 
+# We don't know the name yet 
 
 **Find what moves in the infrared sky.**
 
- We don't kno the name yet  is a public web tool for blinking images from NASA's SPHEREx mission. Enter the coordinates of any patch of sky and it plays every SPHEREx image of that patch as a short animation, so moving objects (nearby stars, brown dwarfs, asteroids, comets) and variable stars are easy to spot.
+ We don't know the name yet  is a public web tool for blinking images from NASA's SPHEREx mission. Enter the coordinates of any patch of sky and it plays every SPHEREx image of that patch as a short animation, so moving objects (nearby stars, brown dwarfs, asteroids, comets) and variable stars are easy to spot.
 
 Built for the **“Planet X and SPHEREx”** challenge of the 2026 NASA Space Apps Challenge.
 
@@ -122,7 +122,7 @@ assets/
 - Aladin Lite and Sesame name resolver: CDS Strasbourg.
 - Fonts: Inter, Inter Tight and JetBrains Mono via Google Fonts.
 
- We don't kno the name yet  is an independent project and is not endorsed by NASA.
+ We don't know the name yet  is an independent project and is not endorsed by NASA.
 
 ## License
 
