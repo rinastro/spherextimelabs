@@ -1,8 +1,8 @@
-# We don't know the name yet 
+# SkyFolder
 
 **Find what moves in the infrared sky.**
 
- We don't know the name yet  is a public web tool for blinking images from NASA's SPHEREx mission. Enter the coordinates of any patch of sky and it plays every SPHEREx image of that patch as a short animation, so moving objects (nearby stars, brown dwarfs, asteroids, comets) and variable stars are easy to spot.
+SkyFolder is a public web tool for blinking images from NASA's SPHEREx mission. Enter the coordinates of any patch of sky and it plays every SPHEREx image of that patch as a short animation, so moving objects (nearby stars, brown dwarfs, asteroids, comets) and variable stars are easy to spot.
 
 Built for the **“Planet X and SPHEREx”** challenge of the 2026 NASA Space Apps Challenge.
 
@@ -50,7 +50,7 @@ The empty `.nojekyll` file makes GitHub serve the files exactly as they are.
 
 ## Configuration
 
-Everything that may change lives in [`assets/js/config.js`](assets/js/config.js).
+Everything that may change lives in [`config.js`](config.js).
 
 **New data releases.** Add the new IRSA SIA collection to the top of `collections`:
 
@@ -99,20 +99,20 @@ viewer.html?target=r-dra&precise=1
 
 1. **Search**: an SIA v2 query to `https://irsa.ipac.caltech.edu/SIA` lists all SPHEREx spectral images containing the position.
 2. **Cutouts**: `?center=RA,Dec&size=…` is appended to each image URL so IRSA returns only a small multi-extension FITS cutout.
-3. **FITS reading**: [`fits.js`](assets/js/fits.js) streams the response, decodes the `IMAGE`, `FLAGS` and (optionally) `WCS-WAVE` extensions, and cancels the download once they have arrived.
-4. **Alignment**: [`wcs.js`](assets/js/wcs.js) implements the TAN projection with SIP distortion and resamples every cutout onto a shared north-up grid.
+3. **FITS reading**: [`fits.js`](fits.js) streams the response, decodes the `IMAGE`, `FLAGS` and (optionally) `WCS-WAVE` extensions, and cancels the download once they have arrived.
+4. **Alignment**: [`wcs.js`](wcs.js) implements the TAN projection with SIP distortion and resamples every cutout onto a shared north-up grid.
 5. **Display**: frames are normalised by their robust noise, stacked per epoch, optionally differenced, stretched and drawn to a canvas. Photometry uses a 1.5-pixel aperture with a local sky annulus.
 
 ```
-assets/
-  css/style.css      layout and folder-tab design
-  js/config.js       settings and data releases
-  js/fits.js         streaming FITS reader
-  js/wcs.js          TAN-SIP WCS and wavelength lookup
-  js/sky.js          coordinates, proper motion, name lookup, test targets
-  js/plot.js         canvas charts
-  js/viewer.js       the viewer
-  js/common.js       shared page behaviour
+(all files sit in the repository root)
+  style.css           layout and folder-tab design
+  config.js       settings and data releases
+  fits.js         streaming FITS reader
+  wcs.js          TAN-SIP WCS and wavelength lookup
+  sky.js          coordinates, proper motion, name lookup, test targets
+  plot.js         canvas charts
+  viewer.js       the viewer
+  common.js       shared page behaviour
 ```
 
 ## Data and credits
@@ -122,7 +122,7 @@ assets/
 - Aladin Lite and Sesame name resolver: CDS Strasbourg.
 - Fonts: Inter, Inter Tight and JetBrains Mono via Google Fonts.
 
- We don't know the name yet  is an independent project and is not endorsed by NASA.
+SkyFolder is an independent project and is not endorsed by NASA.
 
 ## License
 
