@@ -30,7 +30,7 @@ export function scatterPlot(canvas, opts) {
   const ink = css.getPropertyValue('--ink').trim() || '#161616';
   const muted = css.getPropertyValue('--muted').trim() || '#555';
   const grid = 'rgba(0,0,0,0.08)';
-  ctx.font = '12px Inter, system-ui, sans-serif';
+  ctx.font = '12px Montserrat, system-ui, sans-serif';
 
   const pts = series.flatMap(s => s.points.filter(p => Number.isFinite(p.x) && Number.isFinite(p.y)));
   if (!pts.length) {

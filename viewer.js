@@ -717,7 +717,7 @@ function drawOverlays(v) {
 
   if (el.ovGaia.checked && state.gaia.length) {
     const year = mjdToYear(v.mjd);
-    ctx.strokeStyle = '#9fd36b';
+    ctx.strokeStyle = '#FFA142';
     ctx.lineWidth = 1.5;
     for (const g of state.gaia) {
       const p = propagate(g.ra, g.dec, g.pmra, g.pmdec, 2016.0, year);
@@ -731,7 +731,7 @@ function drawOverlays(v) {
 
   if (el.ovCross.checked) {
     const [cx, cy] = toCanvas(state.grid.c, state.grid.c);
-    ctx.strokeStyle = 'rgba(233, 200, 143, 0.95)';
+    ctx.strokeStyle = '#1A1AA7';
     ctx.lineWidth = 2;
     const g = 10, L = 26;
     ctx.beginPath();
@@ -754,7 +754,7 @@ function drawOverlays(v) {
     ctx.fillStyle = 'rgba(20,20,20,0.55)';
     roundRect(ctx, 10, 10, 86, 74, 10); ctx.fill();
     ctx.strokeStyle = '#fff'; ctx.fillStyle = '#fff'; ctx.lineWidth = 2;
-    ctx.font = '600 13px Inter, sans-serif';
+    ctx.font = '600 13px Montserrat, sans-serif';
     ctx.textAlign = 'center'; ctx.textBaseline = 'middle';
     const ox = 70, oy = 64;
     ctx.beginPath(); ctx.moveTo(ox, oy); ctx.lineTo(ox, oy - 38); ctx.moveTo(ox, oy); ctx.lineTo(ox - 38, oy); ctx.stroke();
@@ -770,7 +770,7 @@ function drawOverlays(v) {
     roundRect(ctx, DISPLAY - len - 34, DISPLAY - 44, len + 24, 34, 10); ctx.fill();
     ctx.strokeStyle = '#fff'; ctx.lineWidth = 3;
     ctx.beginPath(); ctx.moveTo(DISPLAY - len - 22, DISPLAY - 20); ctx.lineTo(DISPLAY - 22, DISPLAY - 20); ctx.stroke();
-    ctx.fillStyle = '#fff'; ctx.font = '600 12px Inter, sans-serif'; ctx.textAlign = 'center';
+    ctx.fillStyle = '#fff'; ctx.font = '600 12px Montserrat, sans-serif'; ctx.textAlign = 'center';
     ctx.fillText(label, DISPLAY - 22 - len / 2, DISPLAY - 30);
     ctx.restore();
   }
@@ -1049,8 +1049,8 @@ function updateAladin() {
       state.aladinCats.push({ key, cat });
     } catch (e) { /* ignore */ }
   };
-  add(CONFIG.gaiaVizier, 'Gaia DR3', '#9fd36b', 'gaia');
-  add(CONFIG.wiseVizier, 'AllWISE', '#e9a23b', 'wise');
+  add(CONFIG.gaiaVizier, 'Gaia DR3', '#E3F40C', 'gaia');
+  add(CONFIG.wiseVizier, 'AllWISE', '#FFA142', 'wise');
   toggleAladinCats();
 }
 

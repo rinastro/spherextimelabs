@@ -19,7 +19,7 @@
   <header class="site-header">
     <div class="wrap header-row">
       <a class="brand" href="index.html">
-        <svg viewBox="0 0 512 512" aria-hidden="true"><path d="M32 100a16 16 0 0 1 16-16h48a16 16 0 0 1 16 16v28h272a16 16 0 0 1 16 16v276H32z" fill="#E0AF33"/><path d="M84 48a16 16 0 0 1 16-16h176l72 72v300H84z" fill="#E9E8E0"/><path d="M276 32v56a16 16 0 0 0 16 16h56z" fill="#D6D5CB"/><rect x="124" y="132" width="180" height="16" rx="8" fill="#D6D5CB"/><rect x="124" y="170" width="180" height="16" rx="8" fill="#D6D5CB"/><path d="M118 206h350a12 12 0 0 1 11 16l-60 190a14 14 0 0 1-13 10H46a10 10 0 0 1-10-13z" fill="#FCC640"/></svg>
+        <img src="folder.svg" alt="" width="40" height="40">
         <span><b>SkyFolder</b><small>SPHEREx motion viewer</small></span>
       </a>
       <nav class="tabs" aria-label="Main">
@@ -46,13 +46,19 @@
           </div>
         </div>
 
-        <div class="stack" aria-hidden="true">
-          <div class="sheetcard s1"><span class="t">Gaia &amp; WISE overlays</span></div>
-          <div class="sheetcard s2"><span class="t">Spectra on the fly</span></div>
-          <div class="sheetcard s3"><span class="t">Difference imaging</span></div>
-          <div class="sheetcard s4"><span class="t">Epoch stacks</span></div>
-          <div class="front">
-            <span class="t">Blink comparator</span>
+        <div class="hero-folder" aria-hidden="true">
+          <div class="hf-back"></div>
+          <div class="hf-paper">
+            <span class="hf-fold"></span>
+            <ul>
+              <li>Blink comparator</li>
+              <li>Epoch stacks</li>
+              <li>Difference imaging</li>
+              <li>Spectra on the fly</li>
+              <li>Gaia &amp; WISE overlays</li>
+            </ul>
+          </div>
+          <div class="hf-front">
             <strong>102 colours of<br>infrared, one<br>moving sky.</strong>
             <span class="line">What SkyFolder<br>does for you</span>
           </div>
@@ -80,7 +86,7 @@
 
       <section class="band">
         <div>
-          <p class="eyebrow" style="color:#b8e07f">Why motion matters</p>
+          <p class="eyebrow" style="color:#E3F40C">Why motion matters</p>
           <h2>Pluto was found by blinking two photographs.</h2>
           <p>Comparing images of the same field taken at different times is one of the oldest discovery tools in astronomy. Nearby stars and brown dwarfs drift against the background, asteroids and comets race across it, and variable stars change brightness.</p>
           <p>SPHEREx maps the whole sky every six months in 102 near-infrared colours. That is far more data than anyone can inspect alone, so SkyFolder makes the inspection quick enough for anyone to help.</p>

@@ -120,7 +120,7 @@ viewer.html?target=r-dra&precise=1
 - SPHEREx data: NASA/IPAC Infrared Science Archive (IRSA). Please follow IRSA's citation and acknowledgement guidance for the release you use.
 - Gaia DR3 (ESA) and AllWISE catalogues via VizieR, CDS Strasbourg.
 - Aladin Lite and Sesame name resolver: CDS Strasbourg.
-- Fonts: Inter, Inter Tight and JetBrains Mono via Google Fonts.
+- Fonts: Montserrat and JetBrains Mono via Google Fonts.
 
 SkyFolder is an independent project and is not endorsed by NASA.
 
