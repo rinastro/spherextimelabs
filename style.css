@@ -74,6 +74,7 @@ kbd { border: 1px solid var(--line); border-bottom-width: 2px; padding: 0 .4em; 
 .tab:nth-child(even) { background: var(--kraft-2); }
 .tab::before { content: ''; width: 18px; height: 18px; background: url('folder.svg') center / contain no-repeat; }
 .tab:hover { transform: translateY(-3px); color: var(--ink); }
+.tab-no { font-family: var(--mono); font-size: .72rem; font-weight: 600; opacity: .7; }
 .tab.active { background: var(--paper); z-index: 2; padding-bottom: .95rem; transform: none; }
 
 .sheet {
@@ -173,17 +174,22 @@ section + section { margin-top: clamp(2.5rem, 6vw, 4.5rem); }
 /* ---------- home hero: stacked folders ---------- */
 .hero { display: grid; grid-template-columns: 1.05fr 1fr; gap: clamp(1.5rem, 4vw, 3.5rem); align-items: center; }
 .hero h1 span { display: block; }
+.hero h1 span + span { color: var(--green-dark); }
 .hero .lead { margin: 1.2rem 0 1.8rem; }
 
 .hero-folder { position: relative; width: 100%; max-width: 500px; aspect-ratio: 1 / .92; justify-self: center; }
 .hf-back { position: absolute; left: 4%; top: 12%; width: 78%; height: 80%; background: var(--kraft); border-radius: 22px; }
 .hf-back::before { content: ''; position: absolute; left: 0; top: -9%; width: 30%; height: 14%; background: inherit; border-radius: 18px 18px 0 0; }
-.hf-paper { position: absolute; left: 14%; top: 2%; width: 62%; height: 74%; background: var(--paper-2); border-radius: 18px; padding: 9% 9% 0; box-shadow: 0 6px 18px -10px rgba(40,33,28,.35); clip-path: polygon(0 0, 78% 0, 100% 18%, 100% 100%, 0 100%); }
+.hf-paper { position: absolute; left: 14%; top: 0; width: 62%; height: 76%; background: var(--paper-2); border-radius: 18px; padding: 7% 9% 0; box-shadow: 0 6px 18px -10px rgba(40,33,28,.35); clip-path: polygon(0 0, 78% 0, 100% 18%, 100% 100%, 0 100%); }
 .hf-fold { position: absolute; right: 0; top: 0; width: 22%; height: 18%; background: var(--kraft-2); border-bottom-left-radius: 14px; }
-.hf-paper ul { list-style: none; margin: 0; padding: 0; display: grid; gap: .55rem; }
-.hf-paper li { font-weight: 700; font-size: .9rem; color: var(--green-dark); padding: .35rem .7rem; background: var(--kraft-2); border-radius: 999px; width: fit-content; }
+.hf-title { font-family: var(--mono); font-size: .72rem; letter-spacing: .14em; text-transform: uppercase; color: var(--muted); margin: 0 0 .6rem; }
+.hf-paper ul { list-style: none; margin: 0; padding: 0; display: grid; gap: .35rem; }
+.hf-paper li a { display: inline-flex; gap: .45rem; font-weight: 700; font-size: .82rem; color: var(--green-dark); padding: .28rem .7rem; background: var(--kraft-2); border-radius: 999px; text-decoration: none; }
+.hf-paper li a:hover { background: var(--green); color: var(--ink); }
+.hf-paper li b { font-family: var(--mono); font-weight: 600; }
+.hf-front { pointer-events: none; }
 .hf-front {
-  position: absolute; left: 0; right: 0; bottom: 6%; height: 50%;
+  position: absolute; left: 0; right: 0; bottom: 6%; height: 40%;
   background: var(--green);
   clip-path: polygon(16% 0, 100% 0, 85% 100%, 0 100%);
   border-radius: 14px;
@@ -314,6 +320,10 @@ th { font-size: .76rem; text-transform: uppercase; letter-spacing: .06em; color:
 .aladin-head select { width: auto; }
 #aladin-lite { width: 100%; height: 440px; border-radius: var(--radius); overflow: hidden; background: #1E1915; }
 
+.contents-table td.no { font-family: var(--mono); font-weight: 600; color: var(--green-dark); }
+.contents-table td:last-child { white-space: nowrap; font-weight: 700; }
+.contents-table tbody tr:hover td { background: rgba(227,244,12,.25); }
+
 /* ---------- footer ---------- */
 .site-footer { padding: 2.4rem 0 3rem; font-size: .88rem; color: var(--muted); }
 .footer-row { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 1rem; }
@@ -349,7 +359,8 @@ body.embed .wrap { width: 100%; }
   .player label { grid-column: 1 / -1; }
 }
 @media (max-width: 640px) {
-  .hf-paper li { font-size: .72rem; white-space: nowrap; padding: .25rem .55rem; }
+  .hf-paper li a { font-size: .72rem; white-space: nowrap; padding: .25rem .55rem; }
+  .hf-title { margin-bottom: .3rem; }
   .hf-paper ul { gap: .35rem; }
   .hf-front { padding: 6% 16% 5% 19%; }
   .hf-front strong { font-size: 1.15rem; }

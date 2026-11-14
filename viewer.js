@@ -130,7 +130,7 @@ function init() {
 
   el.copyLink.addEventListener('click', () => copyText(shareUrl(false), el.copyLink, 'Link copied'));
   el.embedBtn.addEventListener('click', () => {
-    const code = `<iframe src="${shareUrl(true)}" width="720" height="820" style="border:0" loading="lazy" title="SPHEREx sky viewer"></iframe>`;
+    const code = `<iframe src="${shareUrl(true)}" width="720" height="820" style="border:0" loading="lazy" title="SPHEREx Time Lab"></iframe>`;
     copyText(code, el.embedBtn, 'Embed code copied');
   });
   el.savePng.addEventListener('click', savePng);
@@ -1107,7 +1107,7 @@ function savePng() {
   if (!state.views.length) return;
   const a = document.createElement('a');
   const { ra, dec } = state.center;
-  a.download = `spherex_${ra.toFixed(4)}_${dec.toFixed(4)}_${state.idx + 1}.png`;
+  a.download = `spherex-time-lab_${ra.toFixed(4)}_${dec.toFixed(4)}_${state.idx + 1}.png`;
   a.href = el.canvas.toDataURL('image/png');
   a.click();
 }

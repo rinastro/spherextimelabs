@@ -1,8 +1,10 @@
-# SkyFolder
+# SPHEREx Time Lab
 
-**Find what moves in the infrared sky.**
+**A project folder for finding what moves in the infrared sky.**
 
-SkyFolder is a public web tool for blinking images from NASA's SPHEREx mission. Enter the coordinates of any patch of sky and it plays every SPHEREx image of that patch as a short animation, so moving objects (nearby stars, brown dwarfs, asteroids, comets) and variable stars are easy to spot.
+SPHEREx Time Lab is our project for the 2026 NASA Space Apps Challenge, presented as one folder: an overview, a live viewer, five test case files, a field guide, data notes and the story behind the project. Each tab of the site is a divider in that folder.
+
+At its heart is a public web tool for blinking images from NASA's SPHEREx mission. Enter the coordinates of any patch of sky and it plays every SPHEREx image of that patch as a short animation, so moving objects (nearby stars, brown dwarfs, asteroids, comets) and variable stars are easy to spot.
 
 Built for the **“Planet X and SPHEREx”** challenge of the 2026 NASA Space Apps Challenge.
 
@@ -19,16 +21,18 @@ Built for the **“Planet X and SPHEREx”** challenge of the 2026 NASA Space Ap
 - **Metadata.** Observation dates, epochs, detectors, wavelengths, flagged-pixel fractions and per-pixel flag bits, with links to every FITS cutout.
 - **Shareable and embeddable.** All settings live in the URL; copy a link, an `<iframe>` embed code, or a PNG of the current frame.
 
-## Pages
+## Folder contents
 
 | Page | Purpose |
 | --- | --- |
-| `index.html` | Introduction and overview |
-| `viewer.html` | The tool itself |
-| `targets.html` | The five challenge test targets, one click each |
-| `guide.html` | How to use the viewer, URL parameters, troubleshooting |
-| `data.html` | Data sources, processing, adding new releases, resources |
-| `about.html` | Project background and how the brief is covered |
+| No. | Section | File | Contents |
+| --- | --- | --- | --- |
+| 01 | Overview | `index.html` | What the project is, folder contents |
+| 02 | Viewer | `viewer.html` | The tool itself |
+| 03 | Test targets | `targets.html` | The five challenge test targets, one click each |
+| 04 | Field guide | `guide.html` | How to use the viewer, URL parameters, troubleshooting |
+| 05 | Data notes | `data.html` | Data sources, processing, adding new releases, resources |
+| 06 | About | `about.html` | Project background and how the brief is covered |
 
 ## Running locally
 
@@ -122,7 +126,7 @@ viewer.html?target=r-dra&precise=1
 - Aladin Lite and Sesame name resolver: CDS Strasbourg.
 - Fonts: Montserrat and JetBrains Mono via Google Fonts.
 
-SkyFolder is an independent project and is not endorsed by NASA.
+SPHEREx Time Lab is an independent project and is not endorsed by NASA.
 
 ## License
 

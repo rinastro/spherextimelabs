@@ -3,10 +3,10 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Data · SkyFolder</title>
-  <meta name="description" content="Where SkyFolder's SPHEREx images come from, how they are processed in the browser, and how to add new data releases.">
-  <meta property="og:title" content="Data · SkyFolder">
-  <meta property="og:description" content="Where SkyFolder's SPHEREx images come from, how they are processed in the browser, and how to add new data releases.">
+  <title>Data · SPHEREx Time Lab</title>
+  <meta name="description" content="Where Time Lab's SPHEREx images come from, how they are processed in the browser, and how to add new data releases.">
+  <meta property="og:title" content="Data · SPHEREx Time Lab">
+  <meta property="og:description" content="Where Time Lab's SPHEREx images come from, how they are processed in the browser, and how to add new data releases.">
   <meta name="theme-color" content="#e5ecd4">
   <link rel="icon" href="favicon.svg" type="image/svg+xml">
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -20,15 +20,15 @@
     <div class="wrap header-row">
       <a class="brand" href="index.html">
         <img src="folder.svg" alt="" width="40" height="40">
-        <span><b>SkyFolder</b><small>SPHEREx motion viewer</small></span>
+        <span><b>SPHEREx Time Lab</b><small>Project folder · Space Apps 2026</small></span>
       </a>
       <nav class="tabs" aria-label="Main">
-        <a class="tab" href="index.html">Home</a>
-        <a class="tab" href="viewer.html">Viewer</a>
-        <a class="tab" href="targets.html">Test targets</a>
-        <a class="tab" href="guide.html">Guide</a>
-        <a class="tab active" href="data.html" aria-current="page">Data</a>
-        <a class="tab" href="about.html">About</a>
+        <a class="tab" href="index.html"><span class="tab-no">01</span>Overview</a>
+        <a class="tab" href="viewer.html"><span class="tab-no">02</span>Viewer</a>
+        <a class="tab" href="targets.html"><span class="tab-no">03</span>Test targets</a>
+        <a class="tab" href="guide.html"><span class="tab-no">04</span>Field guide</a>
+        <a class="tab active" href="data.html" aria-current="page"><span class="tab-no">05</span>Data notes</a>
+        <a class="tab" href="about.html"><span class="tab-no">06</span>About</a>
       </nav>
     </div>
   </header>
@@ -36,9 +36,9 @@
   <div class="wrap">
     <main id="main" class="sheet">
       <div class="page-intro">
-        <p class="eyebrow">Data</p>
+        <p class="eyebrow">Section 05 · Data notes</p>
         <h1 style="font-size:clamp(2rem,4.4vw,3.2rem)">Where the pictures come from</h1>
-        <p class="lead">SkyFolder shows public SPHEREx spectral images served by the NASA/IPAC Infrared Science Archive (IRSA). Nothing is stored on this site; every frame is fetched live.</p>
+        <p class="lead">Time Lab shows public SPHEREx spectral images served by the NASA/IPAC Infrared Science Archive (IRSA). Nothing is stored on this site; every frame is fetched live.</p>
       </div>
 
       <div class="grid three">
@@ -75,7 +75,7 @@
       </div>
 
       <div class="prose">
-        <h2>How SkyFolder reads the archive</h2>
+        <h2>How the Time Lab reads the archive</h2>
         <ol>
           <li><strong>Search.</strong> The viewer asks IRSA’s Simple Image Access service (SIA v2) for every SPHEREx spectral image that contains your position.</li>
           <li><strong>Cut out.</strong> For each image it requests only a small square around your position from IRSA’s cutout service, instead of the full multi-hundred-megabyte file.</li>
@@ -84,7 +84,7 @@
         </ol>
 
         <h2 id="releases">Keeping up with new releases</h2>
-        <p>SPHEREx data arrives quickly: weekly quick releases, followed by larger, fully processed data releases. SkyFolder always asks the archive live, so new images in an existing collection show up automatically. When IRSA opens a new collection, add one line to <code>config.js</code>:</p>
+        <p>SPHEREx data arrives quickly: weekly quick releases, followed by larger, fully processed data releases. Time Lab always asks the archive live, so new images in an existing collection show up automatically. When IRSA opens a new collection, add one line to <code>config.js</code>:</p>
 <pre class="table-wrap" style="padding:1rem;overflow:auto"><code>collections: [
   { id: 'spherex_dr1', label: 'Data Release 1' },   // new release first
   { id: 'spherex_qr',  label: 'Quick Release · Wide Survey' },
@@ -93,7 +93,7 @@
         <p>The first entry becomes the default. If it has no images for a position, the viewer falls back to the next collection automatically.</p>
 
         <h2>Quality flags</h2>
-        <p>Every SPHEREx image comes with a flag map that marks saturated, hot, cosmic-ray-hit or otherwise unreliable pixels. SkyFolder can shade any flagged pixel and lists the flag bits at the pixel you click. The meaning of each bit is in the <a href="https://irsa.ipac.caltech.edu/data/SPHEREx/docs/SPHEREx_Expsupp_QR.pdf" rel="noopener">SPHEREx Explanatory Supplement</a>.</p>
+        <p>Every SPHEREx image comes with a flag map that marks saturated, hot, cosmic-ray-hit or otherwise unreliable pixels. Time Lab can shade any flagged pixel and lists the flag bits at the pixel you click. The meaning of each bit is in the <a href="https://irsa.ipac.caltech.edu/data/SPHEREx/docs/SPHEREx_Expsupp_QR.pdf" rel="noopener">SPHEREx Explanatory Supplement</a>.</p>
 
         <h2>Credits and citation</h2>
         <p>This work uses data from SPHEREx, a NASA mission, served by the NASA/IPAC Infrared Science Archive. Reference stars come from the European Space Agency’s Gaia mission (Data Release 3) and from AllWISE via the VizieR service. The interactive atlas is Aladin Lite and name look-up uses Sesame, both from CDS, Strasbourg. If you publish results based on SPHEREx data, follow IRSA’s acknowledgement and citation guidance for the release you used.</p>
@@ -116,10 +116,10 @@
 
   <footer class="site-footer">
     <div class="wrap footer-row">
-      <p>© <span data-year>2026</span> SkyFolder · Built for the 2026 NASA Space Apps Challenge. Not an official NASA product.</p>
+      <p>© <span data-year>2026</span> SPHEREx Time Lab · Project folder for the 2026 NASA Space Apps Challenge. Not an official NASA product.</p>
       <nav aria-label="Footer">
         <a href="viewer.html">Open viewer</a>
-        <a href="guide.html">Guide</a>
+        <a href="guide.html">Field guide</a>
         <a href="data.html#resources">Resources</a>
         <a href="https://irsa.ipac.caltech.edu/Missions/spherex.html" rel="noopener">SPHEREx at IRSA</a>
       </nav>

@@ -3,9 +3,9 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>SkyFolder · Find what moves in the SPHEREx sky</title>
+  <title>SPHEREx Time Lab · Project folder</title>
   <meta name="description" content="A simple web viewer that blinks NASA SPHEREx infrared images of any patch of sky so anyone can spot moving and variable objects.">
-  <meta property="og:title" content="SkyFolder · Find what moves in the SPHEREx sky">
+  <meta property="og:title" content="SPHEREx Time Lab · Project folder">
   <meta property="og:description" content="A simple web viewer that blinks NASA SPHEREx infrared images of any patch of sky so anyone can spot moving and variable objects.">
   <meta name="theme-color" content="#e5ecd4">
   <link rel="icon" href="favicon.svg" type="image/svg+xml">
@@ -20,15 +20,15 @@
     <div class="wrap header-row">
       <a class="brand" href="index.html">
         <img src="folder.svg" alt="" width="40" height="40">
-        <span><b>SkyFolder</b><small>SPHEREx motion viewer</small></span>
+        <span><b>SPHEREx Time Lab</b><small>Project folder · Space Apps 2026</small></span>
       </a>
       <nav class="tabs" aria-label="Main">
-        <a class="tab active" href="index.html" aria-current="page">Home</a>
-        <a class="tab" href="viewer.html">Viewer</a>
-        <a class="tab" href="targets.html">Test targets</a>
-        <a class="tab" href="guide.html">Guide</a>
-        <a class="tab" href="data.html">Data</a>
-        <a class="tab" href="about.html">About</a>
+        <a class="tab active" href="index.html" aria-current="page"><span class="tab-no">01</span>Overview</a>
+        <a class="tab" href="viewer.html"><span class="tab-no">02</span>Viewer</a>
+        <a class="tab" href="targets.html"><span class="tab-no">03</span>Test targets</a>
+        <a class="tab" href="guide.html"><span class="tab-no">04</span>Field guide</a>
+        <a class="tab" href="data.html"><span class="tab-no">05</span>Data notes</a>
+        <a class="tab" href="about.html"><span class="tab-no">06</span>About</a>
       </nav>
     </div>
   </header>
@@ -37,36 +37,37 @@
     <main id="main" class="sheet">
       <section class="hero">
         <div>
-          <p class="eyebrow">NASA SPHEREx · Near-infrared all-sky survey</p>
-          <h1><span>Find what</span><span>moves in the</span><span>infrared sky.</span></h1>
-          <p class="lead">Type a sky position and SkyFolder flips through SPHEREx images of that patch like a short film. Stars that wander, brown dwarfs that creep, and variables that brighten and fade stand out in seconds.</p>
+          <p class="eyebrow">Project folder · NASA Space Apps Challenge 2026</p>
+          <h1><span>SPHEREx</span><span>Time Lab</span></h1>
+          <p class="lead">Everything our team built to find what moves in the infrared sky, filed in one folder. Open it to blink SPHEREx images of any patch of sky like a short film, test the method on five known objects, and read how it all works.</p>
           <div class="btn-row">
-            <a class="btn" href="viewer.html">Open the viewer</a>
-            <a class="btn ghost" href="targets.html">Try a test target</a>
+            <a class="btn" href="viewer.html">Open the lab</a>
+            <a class="btn ghost" href="#contents">See folder contents</a>
           </div>
         </div>
 
-        <div class="hero-folder" aria-hidden="true">
+        <div class="hero-folder">
           <div class="hf-back"></div>
           <div class="hf-paper">
             <span class="hf-fold"></span>
+            <p class="hf-title">Contents</p>
             <ul>
-              <li>Blink comparator</li>
-              <li>Epoch stacks</li>
-              <li>Difference imaging</li>
-              <li>Spectra on the fly</li>
-              <li>Gaia &amp; WISE overlays</li>
+              <li><a href="viewer.html"><b>02</b> Viewer</a></li>
+              <li><a href="targets.html"><b>03</b> Test targets</a></li>
+              <li><a href="guide.html"><b>04</b> Field guide</a></li>
+              <li><a href="data.html"><b>05</b> Data notes</a></li>
+              <li><a href="about.html"><b>06</b> About</a></li>
             </ul>
           </div>
           <div class="hf-front">
-            <strong>102 colours of<br>infrared, one<br>moving sky.</strong>
-            <span class="line">What SkyFolder<br>does for you</span>
+            <strong>SPHEREx<br>Time Lab</strong>
+            <span class="line">Project folder<br>No. 2026</span>
           </div>
         </div>
       </section>
 
       <section>
-        <p class="eyebrow">How it works</p>
+        <p class="eyebrow">How the lab works</p>
         <h2>Three steps from coordinates to discovery</h2>
         <div class="steps">
           <div class="folder"><span class="label">Enter</span>
@@ -89,7 +90,7 @@
           <p class="eyebrow" style="color:#E3F40C">Why motion matters</p>
           <h2>Pluto was found by blinking two photographs.</h2>
           <p>Comparing images of the same field taken at different times is one of the oldest discovery tools in astronomy. Nearby stars and brown dwarfs drift against the background, asteroids and comets race across it, and variable stars change brightness.</p>
-          <p>SPHEREx maps the whole sky every six months in 102 near-infrared colours. That is far more data than anyone can inspect alone, so SkyFolder makes the inspection quick enough for anyone to help.</p>
+          <p>SPHEREx maps the whole sky every six months in 102 near-infrared colours. That is far more data than anyone can inspect alone, so the Time Lab makes the inspection quick enough for anyone to help.</p>
           <a class="btn green" href="guide.html">Learn how to spot a mover</a>
         </div>
         <div class="blink-demo" aria-label="Animated illustration of a star moving against fixed background stars">
@@ -105,40 +106,59 @@
       </section>
 
       <section>
-        <p class="eyebrow">What’s in the folder</p>
-        <h2>Tools built around SPHEREx data</h2>
+        <p class="eyebrow">Lab equipment</p>
+        <h2>Tools filed in this folder</h2>
         <div class="grid three">
-          <div class="folder paper"><span class="label">Blink</span>
+          <div class="folder paper"><span class="label">Tool 01 · Blink</span>
             <h3>Animated time series</h3>
             <p>Every image covering your position, sorted by date and played as a loop. Step frame by frame with the arrow keys.</p>
           </div>
-          <div class="folder paper"><span class="label">Stack</span>
+          <div class="folder paper"><span class="label">Tool 02 · Stack</span>
             <h3>Per-epoch co-adds</h3>
             <p>Combine all images from one visit, or one detector at a time, for a cleaner picture of each epoch.</p>
           </div>
-          <div class="folder paper"><span class="label">Subtract</span>
+          <div class="folder paper"><span class="label">Tool 03 · Subtract</span>
             <h3>Difference imaging</h3>
             <p>Subtract the first epoch, the previous one, or the median sky. Static stars vanish; anything that moved leaves a dark–bright pair.</p>
           </div>
-          <div class="folder paper"><span class="label">Spectrum</span>
+          <div class="folder paper"><span class="label">Tool 04 · Spectrum</span>
             <h3>Spectra and light curves</h3>
             <p>Click any pixel to measure brightness across up to 102 wavelengths, or follow it over time to catch variable stars.</p>
           </div>
-          <div class="folder paper"><span class="label">Overlay</span>
+          <div class="folder paper"><span class="label">Tool 05 · Overlay</span>
             <h3>Gaia DR3 and AllWISE</h3>
             <p>Gaia positions move with their proper motions frame by frame. A full Aladin Lite sky atlas sits below the viewer.</p>
           </div>
-          <div class="folder paper"><span class="label">Share</span>
+          <div class="folder paper"><span class="label">Tool 06 · Share</span>
             <h3>Links and embeds</h3>
             <p>Coordinates and settings live in the URL. Copy a link, save a PNG, or embed the viewer on another site.</p>
           </div>
         </div>
       </section>
 
+      <section id="contents">
+        <p class="eyebrow">Folder contents</p>
+        <h2>Six sections, one project</h2>
+        <p class="lead" style="margin-bottom:1.6rem">The site is organised like a project folder. Each tab at the top is a divider; this is the index.</p>
+        <div class="table-wrap contents-table">
+          <table>
+            <thead><tr><th>No.</th><th>Section</th><th>What’s inside</th><th></th></tr></thead>
+            <tbody>
+              <tr><td class="no">01</td><td><b>Overview</b></td><td>What the Time Lab is and why blinking the sky matters.</td><td>You are here</td></tr>
+              <tr><td class="no">02</td><td><b>Viewer</b></td><td>The lab itself: search, blink, stack, subtract, spectra, light curves, overlays.</td><td><a href="viewer.html">Open →</a></td></tr>
+              <tr><td class="no">03</td><td><b>Test targets</b></td><td>Barnard’s Star, Epsilon Indi B, WISE 0855, RW Aurigae and R Draconis.</td><td><a href="targets.html">Open →</a></td></tr>
+              <tr><td class="no">04</td><td><b>Field guide</b></td><td>How to read the images, spot movers, use the 102 bands and share views.</td><td><a href="guide.html">Open →</a></td></tr>
+              <tr><td class="no">05</td><td><b>Data notes</b></td><td>Where the images come from, how they are processed, new releases, resources.</td><td><a href="data.html">Open →</a></td></tr>
+              <tr><td class="no">06</td><td><b>About</b></td><td>The challenge brief, what we built against it, and the team.</td><td><a href="about.html">Open →</a></td></tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
       <section>
         <div class="folder green" style="margin-top:2.5rem"><span class="label">Start here</span>
           <h2 style="margin-bottom:.4em">Not sure where to look?</h2>
-          <p>Begin with Barnard’s Star, the fastest-moving star in our sky, or WISE 0855, the coldest brown dwarf known. Each test target opens with settings that show its motion or variability best.</p>
+          <p>Begin with Barnard’s Star, the fastest-moving star in our sky, or WISE 0855, the coldest brown dwarf known. Each case file opens with settings that show its motion or variability best.</p>
           <a class="btn" href="targets.html">Browse test targets</a>
         </div>
       </section>
@@ -148,10 +168,10 @@
 
   <footer class="site-footer">
     <div class="wrap footer-row">
-      <p>© <span data-year>2026</span> SkyFolder · Built for the 2026 NASA Space Apps Challenge. Not an official NASA product.</p>
+      <p>© <span data-year>2026</span> SPHEREx Time Lab · Project folder for the 2026 NASA Space Apps Challenge. Not an official NASA product.</p>
       <nav aria-label="Footer">
         <a href="viewer.html">Open viewer</a>
-        <a href="guide.html">Guide</a>
+        <a href="guide.html">Field guide</a>
         <a href="data.html#resources">Resources</a>
         <a href="https://irsa.ipac.caltech.edu/Missions/spherex.html" rel="noopener">SPHEREx at IRSA</a>
       </nav>
